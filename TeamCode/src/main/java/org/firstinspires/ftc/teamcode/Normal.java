@@ -50,7 +50,7 @@ public class Normal extends LinearOpMode {
                 BackLeft.setPower(4);
                 FrontRight.setPower(-4);
                 FrontLeft.setPower(4);
-                sleep(625);
+                sleep(1200);
 
                 // Stop Turning
                 BackRight.setPower(0);
@@ -65,7 +65,7 @@ public class Normal extends LinearOpMode {
                 BackLeft.setPower(-4);
                 FrontRight.setPower(4);
                 FrontLeft.setPower(-4);
-                sleep(625);
+                sleep(1200);
 
                 // Stop Turning
                 BackRight.setPower(0);
@@ -100,13 +100,14 @@ public class Normal extends LinearOpMode {
         waitForStart();
         if (opModeIsActive()) {
             // Put run blocks here.
+            // Right Side Flipped
+            BackRight.setDirection(DcMotorSimple.Direction.REVERSE);
+            FrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+            // Don't Turn While Moving
+            moving = gamepad1.left_stick_y != 0;
+            turning = gamepad1.right_stick_x != 0;
             while (opModeIsActive()) {
-                //Variable-Type Things
-                BackRight.setDirection(DcMotorSimple.Direction.REVERSE);
-                FrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-
                 //Methods
-                turningWhileMovingFix();
                 move();
                 turn();
                 hardTurn();
