@@ -10,12 +10,6 @@ public class MotorTest extends LinearOpMode {
 
 // ----------EDIT ONLY BELOW----------
 
-    // Motor variables
-    private DcMotor BackRight;
-    private DcMotor BackLeft;
-    private DcMotor FrontRight;
-    private DcMotor FrontLeft;
-
     // Other Variables
     // Code
 
@@ -26,26 +20,26 @@ public class MotorTest extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        BackRight = hardwareMap.get(DcMotor.class, "BackRight");
-        BackLeft = hardwareMap.get(DcMotor.class, "BackLeft");
-        FrontRight = hardwareMap.get(DcMotor.class, "FrontRight");
-        FrontLeft = hardwareMap.get(DcMotor.class, "FrontLeft");
-
+        // Motor variables
+        DcMotor backRight = hardwareMap.get(DcMotor.class, "BackRight");
+        DcMotor backLeft = hardwareMap.get(DcMotor.class, "BackLeft");
+        DcMotor frontRight = hardwareMap.get(DcMotor.class, "FrontRight");
+        DcMotor frontLeft = hardwareMap.get(DcMotor.class, "FrontLeft");
         // Put initialization blocks here.
         waitForStart();
         if (opModeIsActive()) {
             // Put run blocks here.
             while (opModeIsActive()) {
                 // Back Right (0)
-                BackRight.setPower(4);
-                BackRight.setDirection(DcMotorSimple.Direction.REVERSE);
+                backRight.setPower(4);
+                backRight.setDirection(DcMotorSimple.Direction.REVERSE);
                 // Front Right (2)
-                FrontRight.setPower(4);
-                FrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+                frontRight.setPower(4);
+                frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
                 // Back Left (1)
-                BackLeft.setPower(4);
+                backLeft.setPower(4);
                 // Front Left (3)
-                FrontLeft.setPower(4);
+                frontLeft.setPower(4);
             }
         }
     }

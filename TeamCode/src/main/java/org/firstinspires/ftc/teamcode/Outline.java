@@ -9,12 +9,6 @@ public class Outline extends LinearOpMode {
 
 // ----------EDIT ONLY BELOW----------
 
-    // Motor variables
-    private DcMotor PLACEHOLDER1;
-    private DcMotor PLACEHOLDER2;
-    private DcMotor PLACEHOLDER3;
-    private DcMotor PLACEHOLDER4;
-
     // Other Variables
     // Code
 
@@ -25,10 +19,11 @@ public class Outline extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        PLACEHOLDER1 = hardwareMap.get(DcMotor.class, "PLACEHOLDER1");
-        PLACEHOLDER2 = hardwareMap.get(DcMotor.class, "PLACEHOLDER2");
-        PLACEHOLDER3 = hardwareMap.get(DcMotor.class, "PLACEHOLDER3");
-        PLACEHOLDER4 = hardwareMap.get(DcMotor.class, "PLACEHOLDER4");
+        // Motor variables
+        DcMotor PLACEHOLDER1 = hardwareMap.get(DcMotor.class, "PLACEHOLDER1");
+        DcMotor PLACEHOLDER2 = hardwareMap.get(DcMotor.class, "PLACEHOLDER2");
+        DcMotor PLACEHOLDER3 = hardwareMap.get(DcMotor.class, "PLACEHOLDER3");
+        DcMotor PLACEHOLDER4 = hardwareMap.get(DcMotor.class, "PLACEHOLDER4");
 
         // Put initialization blocks here.
         waitForStart();
