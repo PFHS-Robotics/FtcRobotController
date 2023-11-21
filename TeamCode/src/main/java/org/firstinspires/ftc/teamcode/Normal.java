@@ -108,6 +108,7 @@ public class Normal extends LinearOpMode {
             turning = gamepad1.right_stick_x != 0;
             while (opModeIsActive()) {
                 //Methods
+                turningWhileMovingFix();
                 move();
                 turn();
                 hardTurn();
