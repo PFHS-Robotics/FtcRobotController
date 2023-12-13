@@ -1,4 +1,3 @@
-
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -17,27 +16,31 @@ public class MecanumWheelsStrafeTest extends LinearOpMode {
     private DcMotor BackLeft;
     private DcMotor FrontRight;
     private DcMotor FrontLeft;
+    private DcMotor Slide;
 
     //Other Variables
     boolean moving;
     boolean strafing;
 
     // Methods
+    
     void move(){
         if(!strafing) {
             BackRight.setPower(4 * gamepad1.left_stick_y);
-            BackLeft.setPower(4 * gamepad1.left_stick_y);
-            FrontRight.setPower(4 * gamepad1.left_stick_y);
+            BackLeft.setPower(-4 * gamepad1.left_stick_y);
+            FrontRight.setPower(-4 * gamepad1.left_stick_y);
             FrontLeft.setPower(4 * gamepad1.left_stick_y);
         }
     }
 
     void strafe(){
         if(!moving){
-            BackRight.setPower(4 * gamepad1.right_stick_x);
-            BackLeft.setPower(-4 * gamepad1.right_stick_x);
+            BackRight.setPower(-4 * gamepad1.right_stick_x);
+            BackLeft.setPower(4 * gamepad1.right_stick_x);
             FrontRight.setPower(-4 * gamepad1.right_stick_x);
-            FrontLeft.setPower(4 * gamepad1.right_stick_x);
+            FrontLeft.setPower(-4 * gamepad1.right_stick_x);
+            
+            
         }
     }
 
@@ -47,17 +50,17 @@ public class MecanumWheelsStrafeTest extends LinearOpMode {
             if (gamepad1.right_bumper) {
                 // Turn
                 BackRight.setPower(-4);
-                BackLeft.setPower(4);
-                FrontRight.setPower(-4);
-                FrontLeft.setPower(4);
+                BackLeft.setPower(-4);
+                FrontRight.setPower(4);
+                FrontLeft.setPower(-4);
             }
             // Left Turn
             else if (gamepad1.left_bumper) {
                 // Turn
                 BackRight.setPower(4);
-                BackLeft.setPower(-4);
-                FrontRight.setPower(4);
-                FrontLeft.setPower(-4);
+                BackLeft.setPower(4);
+                FrontRight.setPower(-4);
+                FrontLeft.setPower(4);
                 sleep(625);
             }
             else{
@@ -89,6 +92,7 @@ public class MecanumWheelsStrafeTest extends LinearOpMode {
         BackLeft = hardwareMap.get(DcMotor.class, "BackLeft");
         FrontRight = hardwareMap.get(DcMotor.class, "FrontRight");
         FrontLeft = hardwareMap.get(DcMotor.class, "FrontLeft");
+        Slide = hardwareMap.get(DcMotor.class, "Slide");
 
         // Put initialization blocks here.
         waitForStart();
@@ -104,7 +108,9 @@ public class MecanumWheelsStrafeTest extends LinearOpMode {
                 move();
                 strafe();
                 turn();
+                
+                 Slide.setPower(gamepad2.left_stick_y);
+        }
             }
         }
     }
-}
